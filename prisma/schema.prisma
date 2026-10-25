@@ -1,0 +1,63 @@
+// Baby Shower MVP — schema
+// Ver spec 001 §4 y plan 001 §3
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Nota: SQLite no soporta enums nativos. Se usan strings con valores permitidos:
+//   Item.estado:    "disponible" | "reservado" | "ya_lo_tenemos" | "recibido"
+//   Reserva.estado: "activa" | "liberada" | "cancelada_admin" | "recibida"
+
+model Item {
+  id             String    @id @default(cuid())
+  nombre         String
+  categoria      String
+  nota           String?
+  linkReferencia String?
+  estado         String    @default("disponible")
+  reservas       Reserva[]
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  @@index([estado])
+  @@index([categoria])
+}
+
+model Reserva {
+  id              String   @id @default(cuid())
+  itemId          String
+  item            Item     @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  nombreInvitado  String
+  mensajeOpcional String?
+  token           String   @unique
+  estado          String   @default("activa")
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([itemId, estado])
+  @@index([token])
+}
+
+model Mensaje {
+  id          String   @id @default(cuid())
+  nombreAutor String
+  texto       String
+  createdAt   DateTime @default(now())
+
+  @@index([createdAt])
+}
+
+// Singleton (id = 1 siempre). Config del evento, editable por admin.
+model ConfigEvento {
+  id        Int      @id @default(1)
+  fechaHora DateTime
+  direccion String
+  urlMaps   String
+  updatedAt DateTime @updatedAt
+}

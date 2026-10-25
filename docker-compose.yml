@@ -1,0 +1,23 @@
+# Dev local del contenedor de producción.
+# Sirve para probar la imagen tal cual se desplegará en Railway (no para desarrollo
+# iterativo diario — para eso usa `npm run dev`).
+#
+# Uso:
+#   cp .env.example .env   # ajusta ADMIN_PASSWORD y SESSION_SECRET
+#   docker compose up --build
+#   open http://localhost:3000
+
+services:
+  app:
+    build: .
+    image: babyshower:dev
+    container_name: babyshower
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    # Solo pasamos secretos. DATABASE_URL la fija el Dockerfile apuntando al volumen.
+    environment:
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:?set ADMIN_PASSWORD in .env}
+      SESSION_SECRET: ${SESSION_SECRET:?set SESSION_SECRET in .env}
+    volumes:
+      - ./data:/data
