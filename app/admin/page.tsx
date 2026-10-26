@@ -19,6 +19,21 @@ export default async function AdminHome() {
         </ul>
       </section>
 
+      <section className="rounded-xl border border-amber-100 bg-white p-5">
+        <h2 className="text-lg font-semibold text-stone-900 mb-2">Backup</h2>
+        <p className="text-xs text-stone-500 mb-3">
+          Descarga una copia de la base de datos (ítems, reservas, mensajes).
+          Hazlo diario cerca del evento.
+        </p>
+        <a
+          href="/admin/backup"
+          className="inline-flex items-center gap-1.5 rounded-md bg-stone-800 hover:bg-stone-900 text-white text-xs font-semibold px-3 py-1.5"
+        >
+          Descargar backup .db
+          <span aria-hidden>↓</span>
+        </a>
+      </section>
+
       <form action={logout} className="self-start">
         <button
           type="submit"

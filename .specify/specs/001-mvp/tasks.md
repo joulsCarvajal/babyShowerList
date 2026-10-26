@@ -177,9 +177,9 @@ Epics, no tareas de un commit. Desglosar al terminar S1.
 
 - [x] **T3.1 — Pruebas en iOS Safari y Android Chrome vía WhatsApp (abrir link desde chat real).** *(WhatsApp abre el link en el browser default del OS, no en webview in-app → mejor escenario; cookies/dialog/modal funcionan sin quirks)*
 - [x] **T3.2 — Pulido de copy en español, mensajes de error consistentes.** *(auditoría de todas las strings visibles al usuario; cambios: enumeraciones con "y" antes del último item, toasts unificados, "Devolver a disponibles" y "Marcar recibido" por claridad; errores de validación ya consistentes desde S1)*
-- [ ] **T3.3 — A11y pass: labels, contraste, focus visible, orden de tabulación.**
-- [ ] **T3.4 — Cargar lista real de ítems** vía `/admin/items` (sesión conjunta Tatiana + Julián).
-- [ ] **T3.5 — Configurar `ConfigEvento` real** (hora exacta, dirección completa).
+- [x] **T3.3 — A11y pass: labels, contraste, focus visible, orden de tabulación.** *(contraste: rose-500→600, emerald-600→700 para pasar AA en botones primarios; focus-visible global para button/a/summary; h1 en layout admin; labels y aria-* ya existían desde S1)*
+- [x] **T3.4 — Cargar lista real de ítems** vía `/admin/items` (sesión conjunta Tatiana + Julián).
+- [x] **T3.5 — Configurar `ConfigEvento` real** (hora exacta, dirección completa).
 - [ ] **T3.6 — Soft launch lunes 10-nov** — enviar link a 6-10 familiares cercanos. Pedir que reserven algo y manden mensaje.
 - [ ] **T3.7 — Triage de bugs 10-nov a 14-nov** y fix.
 - [ ] **T3.8 — Backup manual de DB** (verificar que el flujo `railway run cp /data/babyshower.db ...` funciona).
