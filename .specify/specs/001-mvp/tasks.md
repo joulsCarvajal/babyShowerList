@@ -167,7 +167,7 @@ Epics, no tareas de un commit. Desglosar al terminar S1.
 - [x] **T2.6 — `/admin/evento`** *(datetime-local se interpreta en Bogotá y se guarda en UTC; roundtrip verificado: 15:00 Bogotá ↔ 20:00 UTC; home consume via `formatEventoDisplay`)*
   - Formulario con fecha-hora (datetime-local), dirección, URL Maps. Guarda a `ConfigEvento` id=1.
 - [x] **T2.7 — Home consume `ConfigEvento` de DB (eliminar hardcodes)** *(verificado via grep: no hay fechas/URLs hardcoded en `app/` ni `components/`; valores literales viven solo en `prisma/seed.ts` como estado inicial de la DB)*
-- [ ] **T2.8 — Deploy S2 a Railway y pruebas end-to-end en móvil**
+- [x] **T2.8 — Deploy S2 a Railway y pruebas end-to-end en móvil** *(bug encontrado + arreglado en móvil real: `onSubmit` en server component de `/admin/reservas` → extraído a client component)*
 
 **Hito S2 (viernes 7-nov):** feature-complete. Lighthouse móvil ≥ 90 perf + a11y.
 
@@ -175,7 +175,7 @@ Epics, no tareas de un commit. Desglosar al terminar S1.
 
 ## Semana 3 — 8-nov a 14-nov · Hardening + soft launch
 
-- [ ] **T3.1 — Pruebas en iOS Safari y Android Chrome vía WhatsApp (abrir link desde chat real).**
+- [x] **T3.1 — Pruebas en iOS Safari y Android Chrome vía WhatsApp (abrir link desde chat real).** *(WhatsApp abre el link en el browser default del OS, no en webview in-app → mejor escenario; cookies/dialog/modal funcionan sin quirks)*
 - [ ] **T3.2 — Pulido de copy en español, mensajes de error consistentes.**
 - [ ] **T3.3 — A11y pass: labels, contraste, focus visible, orden de tabulación.**
 - [ ] **T3.4 — Cargar lista real de ítems** vía `/admin/items` (sesión conjunta Tatiana + Julián).

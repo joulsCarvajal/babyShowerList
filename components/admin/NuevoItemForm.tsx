@@ -41,7 +41,7 @@ export function NuevoItemForm({ categorias }: { categorias: string[] }) {
       <div className="flex items-center justify-between">
         {state?.ok && (
           <p className="text-xs text-emerald-700" role="status">
-            Ítem agregado.
+            Agregado ✓
           </p>
         )}
         <div className="ml-auto">

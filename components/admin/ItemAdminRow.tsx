@@ -97,7 +97,7 @@ export function ItemAdminRow({
               <form action={toggleYaLoTenemos}>
                 <input type="hidden" name="id" value={item.id} />
                 <button type="submit" className="text-xs text-amber-700 hover:underline">
-                  {item.estado === "ya_lo_tenemos" ? "Volver a lista" : "Ya lo tenemos"}
+                  {item.estado === "ya_lo_tenemos" ? "Devolver a disponibles" : "Ya lo tenemos"}
                 </button>
               </form>
             )}

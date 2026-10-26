@@ -14,7 +14,7 @@ export function ReservaAcciones({ reservaId }: { reservaId: string }) {
           type="submit"
           className="rounded-md bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold px-3 py-1"
         >
-          Marcar recibida
+          Marcar recibido
         </button>
       </form>
       <form
