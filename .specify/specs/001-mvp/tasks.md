@@ -97,18 +97,18 @@ Lista ejecutable de tareas. Cada tarea tiene definition of done (DoD) explícita
   - Toggle "ocultar los que ya tenemos" (client component, estado en URL `?ocultar=1`).
   - **DoD:** con 5 ítems seed, se renderizan correctamente y el toggle funciona.
 
-- [ ] **T1.13 — Sección mensajes read-only**
+- [x] **T1.13 — Sección mensajes read-only** *(seed con mensaje de bienvenida de Tatiana y Julián, para que la vista tenga algo que mostrar antes del lanzamiento. "hace X" en español vía `formatDistanceToNow` + locale `es`)*
   - Server component que lista mensajes `orderBy: { createdAt: 'desc' }`.
   - Formato: nombre en bold, texto, "hace X" con `formatDistance` en es.
   - **DoD:** mensajes seed se muestran correctamente.
 
 ### Bloque D — Interacciones públicas (días 5-7)
 
-- [ ] **T1.14 — zod schemas en `lib/validation.ts`**
+- [x] **T1.14 — zod schemas en `lib/validation.ts`** *(incluye helper `parseFormData` que convierte `FormData` a objeto validado para server actions; 10/10 casos probados vía tsx)*
   - `ReservaInput`, `MensajeInput`, `LiberarInput`.
   - **DoD:** schemas exportados, cubren validaciones del spec §6.
 
-- [ ] **T1.15 — Server action `publicarMensaje`**
+- [x] **T1.15 — Server action `publicarMensaje`** *(ActionState devuelve `values` en error para que el form reponga los campos tras rechazo)*
   - En `app/mensajes/actions.ts`, con `"use server"`.
   - Valida con zod, inserta, `revalidatePath('/')`.
   - **DoD:** desde un `<form action={publicarMensaje}>` se publica y aparece sin recargar manualmente.

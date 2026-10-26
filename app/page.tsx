@@ -3,6 +3,7 @@ import { prisma } from "@/lib/db";
 import { EventoHeader } from "@/components/EventoHeader";
 import { ItemCard } from "@/components/ItemCard";
 import { MensajesList } from "@/components/MensajesList";
+import { MensajeForm } from "@/components/MensajeForm";
 import type { Item } from "@prisma/client";
 
 export const dynamic = "force-dynamic";
@@ -107,7 +108,7 @@ export default async function Home({
         <p className="text-sm text-stone-600 mb-6">
           Déjale un mensaje de cariño que leerá cuando sea más grande.
         </p>
-        {/* Formulario para publicar llega en T1.16 */}
+        <MensajeForm />
         <MensajesList />
       </section>
     </main>
