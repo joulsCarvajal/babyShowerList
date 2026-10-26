@@ -93,22 +93,75 @@ export default async function Home({
             No hay ítems que mostrar con el filtro actual.
           </p>
         ) : (
-          Object.entries(porCategoria).map(([categoria, grupo]) => (
-            <section key={categoria} className="mb-8">
-              <h3 className="text-xs uppercase tracking-wider text-stone-500 font-semibold mb-3">
-                {categoria}
-              </h3>
-              <div className="space-y-3">
-                {grupo.map((i) => (
-                  <ItemCard
-                    key={i.id}
-                    item={i}
-                    isMine={misReservas.has(i.id)}
-                  />
-                ))}
-              </div>
-            </section>
-          ))
+          Object.entries(porCategoria).map(([categoria, grupo]) => {
+            const dispCat = grupo.filter(
+              (i) => i.estado === "disponible",
+            ).length;
+            const resCat = grupo.filter(
+              (i) => i.estado === "reservado",
+            ).length;
+            const yaCat = grupo.filter(
+              (i) =>
+                i.estado === "ya_lo_tenemos" || i.estado === "recibido",
+            ).length;
+            // Mantén abierta la categoría si tiene al menos un disponible,
+            // para que el invitado vea sin esfuerzo dónde puede ayudar.
+            const defaultOpen = dispCat > 0;
+
+            return (
+              <details
+                key={categoria}
+                open={defaultOpen}
+                className="mb-3 rounded-xl border border-amber-100 bg-white"
+              >
+                <summary className="cursor-pointer list-none select-none px-4 py-3 flex items-center justify-between gap-3">
+                  <span className="flex items-center gap-2 min-w-0">
+                    <span
+                      aria-hidden
+                      className="chevron text-stone-400 text-xs"
+                    >
+                      ▸
+                    </span>
+                    <span className="text-sm font-semibold text-stone-800 uppercase tracking-wider">
+                      {categoria}
+                    </span>
+                  </span>
+                  <span className="shrink-0 text-xs text-stone-500">
+                    {dispCat > 0 && (
+                      <span className="text-emerald-700 font-semibold">
+                        {dispCat} disp.
+                      </span>
+                    )}
+                    {resCat > 0 && (
+                      <>
+                        {dispCat > 0 && " · "}
+                        <span className="text-amber-700">
+                          {resCat} res.
+                        </span>
+                      </>
+                    )}
+                    {yaCat > 0 && (
+                      <>
+                        {(dispCat > 0 || resCat > 0) && " · "}
+                        <span className="text-stone-400">
+                          {yaCat} ya
+                        </span>
+                      </>
+                    )}
+                  </span>
+                </summary>
+                <div className="px-4 pb-4 space-y-3">
+                  {grupo.map((i) => (
+                    <ItemCard
+                      key={i.id}
+                      item={i}
+                      isMine={misReservas.has(i.id)}
+                    />
+                  ))}
+                </div>
+              </details>
+            );
+          })
         )}
       </section>
 
