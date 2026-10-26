@@ -55,6 +55,18 @@ async function main() {
     });
   }
 
+  // Mensaje de bienvenida — solo si la tabla está vacía.
+  const mensajesCount = await prisma.mensaje.count();
+  if (mensajesCount === 0) {
+    await prisma.mensaje.create({
+      data: {
+        nombreAutor: "Tatiana y Julián",
+        texto:
+          "Juan José, estamos contando los días para conocerte. Gracias a todos los que nos acompañan en este momento tan especial. 💛",
+      },
+    });
+  }
+
   console.log("Seed completo.");
 }
 

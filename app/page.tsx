@@ -2,6 +2,7 @@ import Link from "next/link";
 import { prisma } from "@/lib/db";
 import { EventoHeader } from "@/components/EventoHeader";
 import { ItemCard } from "@/components/ItemCard";
+import { MensajesList } from "@/components/MensajesList";
 import type { Item } from "@prisma/client";
 
 export const dynamic = "force-dynamic";
@@ -94,6 +95,20 @@ export default async function Home({
             </section>
           ))
         )}
+      </section>
+
+      <section className="mt-14" aria-labelledby="titulo-mensajes">
+        <h2
+          id="titulo-mensajes"
+          className="text-2xl font-semibold text-stone-900 mb-2"
+        >
+          Mensajes para Juan José
+        </h2>
+        <p className="text-sm text-stone-600 mb-6">
+          Déjale un mensaje de cariño que leerá cuando sea más grande.
+        </p>
+        {/* Formulario para publicar llega en T1.16 */}
+        <MensajesList />
       </section>
     </main>
   );

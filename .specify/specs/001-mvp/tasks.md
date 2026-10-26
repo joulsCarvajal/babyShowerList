@@ -89,7 +89,7 @@ Lista ejecutable de tareas. Cada tarea tiene definition of done (DoD) explícita
   - Muestra: título, fecha formateada en `America/Bogota` con `date-fns-tz`, dirección, botón "Ver ubicación en Maps" (target=_blank, rel=noopener).
   - **DoD:** header visible y accesible, botón abre la URL de Maps.
 
-- [ ] **T1.12 — Lista de ítems read-only con agrupación por categoría**
+- [x] **T1.12 — Lista de ítems read-only con agrupación por categoría** *(contadores correctos verificados con seed: 4 disp · 0 res · 1 ya; toggle `?ocultar=1` oculta ya tenemos; anonimato: estado `reservado` no revela nombre)*
   - Server component en `app/page.tsx` que hace `prisma.item.findMany({ orderBy: [{ categoria: 'asc' }, { nombre: 'asc' }] })`.
   - `ItemCard` muestra: nombre, nota, link si existe, badge de estado.
   - Agrupar por `categoria` con `<section>` por grupo.
