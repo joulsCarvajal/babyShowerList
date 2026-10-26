@@ -84,7 +84,7 @@ Lista ejecutable de tareas. Cada tarea tiene definition of done (DoD) explícita
   - Tipografía system-ui + tailwind config con paleta cálida (sugerencia: `amber`, `rose`).
   - **DoD:** render en móvil se ve equilibrado, sin FOUC.
 
-- [ ] **T1.11 — `components/EventoHeader.tsx`**
+- [x] **T1.11 — `components/EventoHeader.tsx`** *(server component; `lib/tz.ts` con `formatEventoDisplay` en español vía date-fns-tz; home ahora `dynamic` porque lee DB; también `cacheComponents` removido de next.config)*
   - Lee `ConfigEvento` desde server component padre.
   - Muestra: título, fecha formateada en `America/Bogota` con `date-fns-tz`, dirección, botón "Ver ubicación en Maps" (target=_blank, rel=noopener).
   - **DoD:** header visible y accesible, botón abre la URL de Maps.
