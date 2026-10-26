@@ -164,9 +164,9 @@ Epics, no tareas de un commit. Desglosar al terminar S1.
   - Sección colapsada "historial de liberadas / canceladas".
 - [x] **T2.5 — `/admin/mensajes`** *(editar inline con zod validation; eliminar es hard delete per spec §9)*
   - Tabla con editar inline y borrar con confirmación.
-- [ ] **T2.6 — `/admin/evento`**
+- [x] **T2.6 — `/admin/evento`** *(datetime-local se interpreta en Bogotá y se guarda en UTC; roundtrip verificado: 15:00 Bogotá ↔ 20:00 UTC; home consume via `formatEventoDisplay`)*
   - Formulario con fecha-hora (datetime-local), dirección, URL Maps. Guarda a `ConfigEvento` id=1.
-- [ ] **T2.7 — Home consume `ConfigEvento` de DB (eliminar hardcodes)**
+- [x] **T2.7 — Home consume `ConfigEvento` de DB (eliminar hardcodes)** *(verificado via grep: no hay fechas/URLs hardcoded en `app/` ni `components/`; valores literales viven solo en `prisma/seed.ts` como estado inicial de la DB)*
 - [ ] **T2.8 — Deploy S2 a Railway y pruebas end-to-end en móvil**
 
 **Hito S2 (viernes 7-nov):** feature-complete. Lighthouse móvil ≥ 90 perf + a11y.
