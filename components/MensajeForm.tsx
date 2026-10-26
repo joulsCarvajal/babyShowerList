@@ -13,7 +13,7 @@ function BotonPublicar() {
       disabled={pending}
       className={clsx(
         "inline-flex items-center justify-center rounded-full px-5 py-2 text-sm font-semibold text-white transition-colors",
-        "bg-rose-500 hover:bg-rose-600 disabled:bg-rose-300 disabled:cursor-not-allowed",
+        "bg-rose-600 hover:bg-rose-700 disabled:bg-rose-300 disabled:cursor-not-allowed",
       )}
     >
       {pending ? "Publicando..." : "Publicar mensaje"}

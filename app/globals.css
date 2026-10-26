@@ -10,3 +10,13 @@ h1, h2, h3 {
   font-family: var(--font-display);
   letter-spacing: -0.01em;
 }
+
+/* Focus visible unificado para navegación por teclado (botones y links).
+   Los inputs/textarea mantienen su propio focus:ring en Tailwind. */
+button:focus-visible,
+a:focus-visible,
+summary:focus-visible {
+  outline: 2px solid #e11d48; /* rose-600 */
+  outline-offset: 2px;
+  border-radius: 4px;
+}

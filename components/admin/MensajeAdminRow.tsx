@@ -18,7 +18,7 @@ function BotonGuardar() {
     <button
       type="submit"
       disabled={pending}
-      className="rounded-md bg-rose-500 hover:bg-rose-600 disabled:bg-rose-300 text-white text-xs font-semibold px-3 py-1.5"
+      className="rounded-md bg-rose-600 hover:bg-rose-700 disabled:bg-rose-300 text-white text-xs font-semibold px-3 py-1.5"
     >
       {pending ? "Guardando..." : "Guardar"}
     </button>

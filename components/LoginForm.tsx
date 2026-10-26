@@ -11,7 +11,7 @@ function BotonIngresar() {
     <button
       type="submit"
       disabled={pending}
-      className="w-full inline-flex items-center justify-center rounded-md bg-rose-500 hover:bg-rose-600 disabled:bg-rose-300 text-white font-semibold py-2 transition-colors"
+      className="w-full inline-flex items-center justify-center rounded-md bg-rose-600 hover:bg-rose-700 disabled:bg-rose-300 text-white font-semibold py-2 transition-colors"
     >
       {pending ? "Verificando..." : "Ingresar"}
     </button>

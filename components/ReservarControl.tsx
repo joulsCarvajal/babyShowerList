@@ -35,7 +35,7 @@ function PendienteSubmit({ labelIdle, labelPending }: { labelIdle: string; label
     <button
       type="submit"
       disabled={pending}
-      className="inline-flex items-center justify-center rounded-full bg-rose-500 hover:bg-rose-600 disabled:bg-rose-300 disabled:cursor-not-allowed text-white text-sm font-semibold px-4 py-2 transition-colors"
+      className="inline-flex items-center justify-center rounded-full bg-rose-600 hover:bg-rose-700 disabled:bg-rose-300 disabled:cursor-not-allowed text-white text-sm font-semibold px-4 py-2 transition-colors"
     >
       {pending ? labelPending : labelIdle}
     </button>
@@ -61,7 +61,7 @@ function BotonReservar({ itemId, itemNombre }: { itemId: string; itemNombre: str
       <button
         type="button"
         onClick={() => dialogRef.current?.showModal()}
-        className="self-start mt-1 inline-flex items-center gap-1.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold px-4 py-1.5 transition-colors"
+        className="self-start mt-1 inline-flex items-center gap-1.5 rounded-full bg-emerald-700 hover:bg-emerald-800 text-white text-sm font-semibold px-4 py-1.5 transition-colors"
       >
         Lo regalo yo
       </button>

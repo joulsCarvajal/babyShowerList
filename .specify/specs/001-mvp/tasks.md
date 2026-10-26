@@ -176,7 +176,7 @@ Epics, no tareas de un commit. Desglosar al terminar S1.
 ## Semana 3 — 8-nov a 14-nov · Hardening + soft launch
 
 - [x] **T3.1 — Pruebas en iOS Safari y Android Chrome vía WhatsApp (abrir link desde chat real).** *(WhatsApp abre el link en el browser default del OS, no en webview in-app → mejor escenario; cookies/dialog/modal funcionan sin quirks)*
-- [ ] **T3.2 — Pulido de copy en español, mensajes de error consistentes.**
+- [x] **T3.2 — Pulido de copy en español, mensajes de error consistentes.** *(auditoría de todas las strings visibles al usuario; cambios: enumeraciones con "y" antes del último item, toasts unificados, "Devolver a disponibles" y "Marcar recibido" por claridad; errores de validación ya consistentes desde S1)*
 - [ ] **T3.3 — A11y pass: labels, contraste, focus visible, orden de tabulación.**
 - [ ] **T3.4 — Cargar lista real de ítems** vía `/admin/items` (sesión conjunta Tatiana + Julián).
 - [ ] **T3.5 — Configurar `ConfigEvento` real** (hora exacta, dirección completa).

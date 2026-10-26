@@ -12,7 +12,7 @@ function BotonCrear() {
     <button
       type="submit"
       disabled={pending}
-      className="rounded-md bg-rose-500 hover:bg-rose-600 disabled:bg-rose-300 text-white text-sm font-semibold px-4 py-1.5"
+      className="rounded-md bg-rose-600 hover:bg-rose-700 disabled:bg-rose-300 text-white text-sm font-semibold px-4 py-1.5"
     >
       {pending ? "Agregando..." : "Agregar ítem"}
     </button>

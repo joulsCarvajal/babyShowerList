@@ -6,7 +6,7 @@ export async function EventoHeader() {
 
   return (
     <header className="text-center">
-      <p className="text-sm uppercase tracking-widest text-rose-500 font-semibold mb-2">
+      <p className="text-sm uppercase tracking-widest text-rose-600 font-semibold mb-2">
         Baby shower
       </p>
       <h1 className="text-4xl sm:text-5xl font-semibold text-stone-900">
@@ -26,7 +26,7 @@ export async function EventoHeader() {
             href={evento.urlMaps}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-rose-500 hover:bg-rose-600 text-white text-sm font-semibold px-5 py-2 transition-colors"
+            className="inline-flex items-center gap-2 rounded-full bg-rose-600 hover:bg-rose-700 text-white text-sm font-semibold px-5 py-2 transition-colors"
           >
             Ver ubicación en Maps
             <span aria-hidden>↗</span>
