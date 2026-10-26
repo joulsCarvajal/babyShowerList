@@ -2,10 +2,7 @@ import { formatDistanceToNow } from "date-fns";
 import { es } from "date-fns/locale";
 import { prisma } from "@/lib/db";
 import { requireAdmin } from "@/lib/session";
-import {
-  cancelarReserva,
-  marcarRecibida,
-} from "@/app/admin/reservas/actions";
+import { ReservaAcciones } from "@/components/admin/ReservaAcciones";
 
 export const dynamic = "force-dynamic";
 
@@ -77,37 +74,7 @@ export default async function AdminReservasPage() {
                           </p>
                         )}
                       </div>
-                      <div className="flex flex-col gap-1 items-end shrink-0">
-                        <form action={marcarRecibida}>
-                          <input type="hidden" name="id" value={r.id} />
-                          <button
-                            type="submit"
-                            className="rounded-md bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold px-3 py-1"
-                          >
-                            Marcar recibida
-                          </button>
-                        </form>
-                        <form
-                          action={cancelarReserva}
-                          onSubmit={(e) => {
-                            if (
-                              !confirm(
-                                "Cancelar liberará el ítem para otros invitados. ¿Continuar?",
-                              )
-                            ) {
-                              e.preventDefault();
-                            }
-                          }}
-                        >
-                          <input type="hidden" name="id" value={r.id} />
-                          <button
-                            type="submit"
-                            className="text-xs text-rose-600 hover:underline"
-                          >
-                            Cancelar
-                          </button>
-                        </form>
-                      </div>
+                      <ReservaAcciones reservaId={r.id} />
                     </div>
                   </li>
                 ))}
