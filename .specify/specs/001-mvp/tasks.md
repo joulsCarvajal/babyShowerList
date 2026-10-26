@@ -162,7 +162,7 @@ Epics, no tareas de un commit. Desglosar al terminar S1.
   - Lista agrupada visualmente por `nombreInvitado`, con fecha y mensaje opcional.
   - Acciones: marcar recibida, cancelar.
   - Sección colapsada "historial de liberadas / canceladas".
-- [ ] **T2.5 — `/admin/mensajes`**
+- [x] **T2.5 — `/admin/mensajes`** *(editar inline con zod validation; eliminar es hard delete per spec §9)*
   - Tabla con editar inline y borrar con confirmación.
 - [ ] **T2.6 — `/admin/evento`**
   - Formulario con fecha-hora (datetime-local), dirección, URL Maps. Guarda a `ConfigEvento` id=1.

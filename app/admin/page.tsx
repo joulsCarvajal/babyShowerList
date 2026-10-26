@@ -15,11 +15,8 @@ export default async function AdminHome() {
           <AdminLink href="/admin/items" label="Lista de ítems" descr="Crear, editar, marcar como ya tenemos" />
           <AdminLink href="/admin/reservas" label="Reservas" descr="Ver quién reservó qué, marcar recibidos" />
           <AdminLink href="/admin/mensajes" label="Mensajes" descr="Moderar mensajes públicos" />
-          <AdminLink href="/admin/evento" label="Info del evento" descr="Fecha, hora, dirección, mapa" disabled />
+          <AdminLink href="/admin/evento" label="Info del evento" descr="Fecha, hora, dirección, mapa" />
         </ul>
-        <p className="mt-4 text-xs text-stone-500 italic">
-          Las secciones se habilitan en los próximos commits (T2.3 → T2.6).
-        </p>
       </section>
 
       <form action={logout} className="self-start">

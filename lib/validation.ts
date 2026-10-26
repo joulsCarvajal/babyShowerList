@@ -87,6 +87,29 @@ export const EditMensajeInput = MensajeInput.extend({
 });
 export type EditMensajeInput = z.infer<typeof EditMensajeInput>;
 
+export const EventoInput = z.object({
+  fechaHora: z
+    .string()
+    .trim()
+    .regex(
+      /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2})?$/,
+      "Fecha/hora inválida.",
+    ),
+  direccion: z
+    .string()
+    .trim()
+    .min(3, "La dirección es muy corta.")
+    .max(200, "La dirección es muy larga."),
+  urlMaps: z
+    .string()
+    .trim()
+    .refine(
+      (v) => /^https?:\/\//i.test(v),
+      "El enlace de Maps debe comenzar con http:// o https://",
+    ),
+});
+export type EventoInput = z.infer<typeof EventoInput>;
+
 /**
  * Helper para server actions: convierte FormData a objeto plano y lo valida.
  * Retorna { ok: true, data } o { ok: false, errors } sin lanzar.

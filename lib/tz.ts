@@ -1,7 +1,17 @@
-import { formatInTimeZone } from "date-fns-tz";
+import { formatInTimeZone, fromZonedTime } from "date-fns-tz";
 import { es } from "date-fns/locale";
 
 export const BOGOTA_TZ = "America/Bogota";
+
+/** Interpreta "YYYY-MM-DDTHH:mm" como hora local de Bogotá y lo convierte a UTC. */
+export function bogotaLocalToUtc(local: string): Date {
+  return fromZonedTime(local, BOGOTA_TZ);
+}
+
+/** Formatea un Date UTC como "YYYY-MM-DDTHH:mm" en Bogotá — útil para inputs datetime-local. */
+export function utcToBogotaLocalInput(date: Date): string {
+  return formatInTimeZone(date, BOGOTA_TZ, "yyyy-MM-dd'T'HH:mm");
+}
 
 /**
  * Formatea una fecha en zona horaria de Bogotá, en español.
