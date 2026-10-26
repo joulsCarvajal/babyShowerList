@@ -64,7 +64,7 @@ Lista ejecutable de tareas. Cada tarea tiene definition of done (DoD) explícita
   - Servicio único con volumen local `./data:/data`.
   - **DoD:** `docker compose up` levanta y responde en `localhost:3000`.
 
-- [ ] **T1.8 — Deploy inicial a Railway**
+- [x] **T1.8 — Deploy inicial a Railway** *(URL: babyshowerlist-production.up.railway.app · HTTP 200 público · volumen `/data` persiste entre redeploys confirmado. Fix on-the-way: entrypoint `su-exec` para corregir ownership del volumen montado por Railway como root)*
   - Crear repo GitHub `babyshower`, push.
   - Conectar repo en Railway, crear proyecto.
   - Crear volumen montado en `/data`.
@@ -72,14 +72,14 @@ Lista ejecutable de tareas. Cada tarea tiene definition of done (DoD) explícita
   - Generar dominio público.
   - **DoD:** URL Railway responde con la home default y la DB persiste tras un `redeploy` manual.
 
-- [ ] **T1.9 — robots.txt + meta noindex**
+- [x] **T1.9 — robots.txt + meta noindex** *(también html lang="es", título y descripción en español)*
   - `public/robots.txt`: `User-agent: *\nDisallow: /`.
   - En `app/layout.tsx`: `metadata.robots = { index: false, follow: false }`.
   - **DoD:** `curl <url>/robots.txt` devuelve el disallow; HTML tiene `<meta name="robots" content="noindex,nofollow">`.
 
 ### Bloque C — UI pública read-only (días 3-4)
 
-- [ ] **T1.10 — Layout raíz + fuentes + styling base**
+- [x] **T1.10 — Layout raíz + fuentes + styling base** *(Fraunces display + Nunito body via next/font, paleta amber/rose, viewport themeColor, home placeholder reemplaza default de create-next-app)*
   - `app/layout.tsx` con `<html lang="es">`, viewport mobile, título "Baby shower de Juan José".
   - Tipografía system-ui + tailwind config con paleta cálida (sugerencia: `amber`, `rose`).
   - **DoD:** render en móvil se ve equilibrado, sin FOUC.

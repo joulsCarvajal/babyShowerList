@@ -3,8 +3,6 @@ import path from "node:path";
 
 const nextConfig: NextConfig = {
   outputFileTracingRoot: path.join(__dirname),
-  cacheComponents: true,
-  partialPrefetching: true,
   turbopack: {
     root: path.join(__dirname),
     rules: {
