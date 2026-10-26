@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { cookies } from "next/headers";
 import { prisma } from "@/lib/db";
 import { EventoHeader } from "@/components/EventoHeader";
 import { ItemCard } from "@/components/ItemCard";
@@ -16,9 +17,18 @@ export default async function Home({
   const params = await searchParams;
   const ocultar = params?.ocultar === "1";
 
-  const items = await prisma.item.findMany({
-    orderBy: [{ categoria: "asc" }, { nombre: "asc" }],
-  });
+  const [items, store] = await Promise.all([
+    prisma.item.findMany({
+      orderBy: [{ categoria: "asc" }, { nombre: "asc" }],
+    }),
+    cookies(),
+  ]);
+  const misReservas = new Set(
+    store
+      .getAll()
+      .filter((c) => c.name.startsWith("reserva_"))
+      .map((c) => c.name.slice("reserva_".length)),
+  );
 
   const disponibles = items.filter((i) => i.estado === "disponible").length;
   const reservados = items.filter((i) => i.estado === "reservado").length;
@@ -90,7 +100,11 @@ export default async function Home({
               </h3>
               <div className="space-y-3">
                 {grupo.map((i) => (
-                  <ItemCard key={i.id} item={i} />
+                  <ItemCard
+                    key={i.id}
+                    item={i}
+                    isMine={misReservas.has(i.id)}
+                  />
                 ))}
               </div>
             </section>

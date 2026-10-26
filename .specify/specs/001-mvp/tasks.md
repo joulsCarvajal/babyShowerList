@@ -124,7 +124,7 @@ Lista ejecutable de tareas. Cada tarea tiene definition of done (DoD) explícita
   - `revalidatePath('/')`.
   - **DoD:** reservar un ítem lo mueve a `reservado` y la cookie queda. Doble reserva simultánea (dos pestañas) falla la segunda limpiamente.
 
-- [ ] **T1.18 — Server action `liberarReserva`**
+- [x] **T1.18 — Server action `liberarReserva`** *(cookie opaca verificada contra token en DB; reserva pasa a estado `liberada` como auditoría, no se borra; cookies huérfanas se limpian; probado happy path + stale token + token aleatorio + re-reservar)*
   - Lee cookie `reserva_<itemId>`, compara con `token` en DB.
   - Transacción: cambia `Reserva.estado` a `liberada` y `Item.estado` a `disponible`.
   - Borra cookie.

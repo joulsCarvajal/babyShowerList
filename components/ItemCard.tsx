@@ -1,5 +1,6 @@
 import type { Item } from "@prisma/client";
 import clsx from "clsx";
+import { ReservarControl } from "@/components/ReservarControl";
 
 const ESTADO_LABEL: Record<string, string> = {
   disponible: "Disponible",
@@ -15,7 +16,7 @@ const ESTADO_STYLES: Record<string, string> = {
   recibido: "bg-stone-100 text-stone-500",
 };
 
-export function ItemCard({ item }: { item: Item }) {
+export function ItemCard({ item, isMine }: { item: Item; isMine: boolean }) {
   const yaLoTienen =
     item.estado === "ya_lo_tenemos" || item.estado === "recibido";
   return (
@@ -54,7 +55,12 @@ export function ItemCard({ item }: { item: Item }) {
           Ver referencia ↗
         </a>
       )}
-      {/* Botón "Lo regalo yo" / "Ya no podré regalarlo" se agrega en T1.19 */}
+      <ReservarControl
+        itemId={item.id}
+        itemNombre={item.nombre}
+        estado={item.estado}
+        isMine={isMine}
+      />
     </article>
   );
 }
