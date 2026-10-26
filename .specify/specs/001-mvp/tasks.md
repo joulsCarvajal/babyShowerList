@@ -118,7 +118,7 @@ Lista ejecutable de tareas. Cada tarea tiene definition of done (DoD) explícita
   - Mensajes de error inline en español.
   - **DoD:** publicar funciona, errores se muestran, submit doble bloqueado.
 
-- [ ] **T1.17 — Server action `reservarItem` con transacción + cookie**
+- [x] **T1.17 — Server action `reservarItem` con transacción + cookie** *(race condition verificada contra SQLite: segunda reserva simultánea rechazada con "ITEM_NOT_AVAILABLE"; cookie `reserva_<itemId>` HttpOnly + SameSite=Lax + 90d TTL + Secure solo en prod)*
   - Transacción Prisma: valida estado `disponible`, cambia a `reservado`, crea `Reserva` con token.
   - Setea cookie `reserva_<itemId>` con `cookies().set()`.
   - `revalidatePath('/')`.
