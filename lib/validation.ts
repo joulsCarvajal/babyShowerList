@@ -23,6 +23,11 @@ export const ReservaInput = z.object({
 });
 export type ReservaInput = z.infer<typeof ReservaInput>;
 
+export const ReservarItemInput = ReservaInput.extend({
+  itemId: z.string().min(1),
+});
+export type ReservarItemInput = z.infer<typeof ReservarItemInput>;
+
 export const MensajeInput = z.object({
   nombreAutor: nombre,
   texto: z

@@ -113,7 +113,7 @@ Lista ejecutable de tareas. Cada tarea tiene definition of done (DoD) explícita
   - Valida con zod, inserta, `revalidatePath('/')`.
   - **DoD:** desde un `<form action={publicarMensaje}>` se publica y aparece sin recargar manualmente.
 
-- [ ] **T1.16 — Formulario de mensaje en home**
+- [x] **T1.16 — Formulario de mensaje en home** *(useActionState + useFormStatus; errores inline en español vía `aria-invalid` y `aria-describedby`; valores se repueblan en error; en éxito el form se desmonta con `key` y muestra toast transitorio por 4s)*
   - Client component `MensajeForm.tsx` con `useFormStatus` para disabled durante submit.
   - Mensajes de error inline en español.
   - **DoD:** publicar funciona, errores se muestran, submit doble bloqueado.
