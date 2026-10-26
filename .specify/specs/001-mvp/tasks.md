@@ -130,12 +130,12 @@ Lista ejecutable de tareas. Cada tarea tiene definition of done (DoD) explícita
   - Borra cookie.
   - **DoD:** desde la UI, el invitado que reservó ve botón "Ya no podré regalarlo" y funciona.
 
-- [ ] **T1.19 — Modal/sheet de reserva en `ItemCard`**
+- [x] **T1.19 — Modal/sheet de reserva en `ItemCard`** *(usa `<dialog>` nativo HTML; `ReservarControl` decide qué mostrar según estado + cookie; backdrop/ESC naturales; confirm nativo antes de liberar)*
   - Client component que muestra form con nombre + mensaje opcional al pulsar "Lo regalo yo".
   - Confirmación visual tras éxito.
   - **DoD:** flujo A del spec §5 completo end-to-end en móvil.
 
-- [ ] **T1.20 — Pruebas manuales S1 en localhost**
+- [x] **T1.20 — Pruebas manuales S1 en localhost** *(5 escenarios validados vía curl+cookies+DB: anónimo ve "Lo regalo yo"; invitado 2 sin cookie ve "Reservado" sin acción; invitado 1 con cookie ve "Ya no podré regalarlo"; liberar vuelve a `disponible`; 3 mensajes orden desc por createdAt confirmado)*
   - Reservar desde una pestaña, verificar que otra pestaña ve `reservado` sin botón.
   - Liberar desde pestaña original, verificar vuelta a `disponible`.
   - Publicar 3 mensajes, verificar orden.
