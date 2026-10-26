@@ -82,6 +82,11 @@ export const EditItemInput = ItemInput.extend({
 });
 export type EditItemInput = z.infer<typeof EditItemInput>;
 
+export const EditMensajeInput = MensajeInput.extend({
+  id: z.string().min(1),
+});
+export type EditMensajeInput = z.infer<typeof EditMensajeInput>;
+
 /**
  * Helper para server actions: convierte FormData a objeto plano y lo valida.
  * Retorna { ok: true, data } o { ok: false, errors } sin lanzar.

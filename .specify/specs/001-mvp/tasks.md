@@ -158,7 +158,7 @@ Epics, no tareas de un commit. Desglosar al terminar S1.
   - Botón logout.
 - [x] **T2.3 — `/admin/items` CRUD** *(crear, editar inline, eliminar con confirm diferenciado si hay reserva activa, toggle `ya_lo_tenemos`↔`disponible` sin tocar `reservado`/`recibido`, autocompletar categorías vía `<datalist>` nativo con categorías existentes)*
   - Tabla, formulario crear/editar (incluye categoría con sugerencia autocompletar basada en existentes), acción cambiar estado `ya_lo_tenemos ↔ disponible`, eliminar con confirmación.
-- [ ] **T2.4 — `/admin/reservas`**
+- [x] **T2.4 — `/admin/reservas`** *(activas agrupadas por `nombreInvitado`; mensaje opcional del invitado se ve; historial colapsado vía `<details>` con labels color-coded; marcar recibida es terminal, cancelar libera el ítem sin tocar la cookie del invitado — se auto-limpia después)*
   - Lista agrupada visualmente por `nombreInvitado`, con fecha y mensaje opcional.
   - Acciones: marcar recibida, cancelar.
   - Sección colapsada "historial de liberadas / canceladas".
