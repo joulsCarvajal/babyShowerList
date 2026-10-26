@@ -152,7 +152,7 @@ Epics, no tareas de un commit. Desglosar al terminar S1.
 - [x] **T2.1 — Infra de sesión y rate limit** *(iron-session cookie `admin_session` 7d; rate-limit en Map validado: 5 fails/10min → bloqueo 15min, auto-expira, aislamiento por IP)*
   - `lib/session.ts` con iron-session (cookie `admin_session`, 7 días).
   - `lib/rate-limit.ts` Map en memoria por IP, 5 intentos / 10 min, bloqueo 15 min.
-- [ ] **T2.2 — `/admin/login` + protección de layout**
+- [x] **T2.2 — `/admin/login` + protección de layout** *(gate vía `requireAdmin()` helper en cada page protegido, no middleware ni route groups — más explícito; constant-time password compare; local test: GET /admin sin cookie → 307 /admin/login)*
   - Form password, server action que valida contra `ADMIN_PASSWORD`, aplica rate limit.
   - `app/admin/layout.tsx` redirige si no autenticado.
   - Botón logout.

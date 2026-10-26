@@ -12,7 +12,7 @@ export default async function AdminHome() {
       <section className="rounded-xl border border-amber-100 bg-white p-5">
         <h2 className="text-lg font-semibold text-stone-900 mb-3">Secciones</h2>
         <ul className="grid gap-2 sm:grid-cols-2">
-          <AdminLink href="/admin/items" label="Lista de ítems" descr="Crear, editar, marcar como ya tenemos" disabled />
+          <AdminLink href="/admin/items" label="Lista de ítems" descr="Crear, editar, marcar como ya tenemos" />
           <AdminLink href="/admin/reservas" label="Reservas" descr="Ver quién reservó qué, marcar recibidos" disabled />
           <AdminLink href="/admin/mensajes" label="Mensajes" descr="Moderar mensajes públicos" disabled />
           <AdminLink href="/admin/evento" label="Info del evento" descr="Fecha, hora, dirección, mapa" disabled />

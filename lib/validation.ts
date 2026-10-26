@@ -46,6 +46,42 @@ export const LiberarInput = z.object({
 });
 export type LiberarInput = z.infer<typeof LiberarInput>;
 
+const linkRef = z
+  .string()
+  .trim()
+  .optional()
+  .transform((v) => (v === "" || v === undefined ? undefined : v))
+  .refine(
+    (v) => v === undefined || /^https?:\/\//i.test(v),
+    "El enlace debe comenzar con http:// o https://",
+  );
+
+export const ItemInput = z.object({
+  nombre: z
+    .string()
+    .trim()
+    .min(2, "El nombre es muy corto.")
+    .max(80, "El nombre es muy largo."),
+  categoria: z
+    .string()
+    .trim()
+    .min(2, "La categoría es muy corta.")
+    .max(40, "La categoría es muy larga."),
+  nota: z
+    .string()
+    .trim()
+    .max(200, "La nota es muy larga.")
+    .optional()
+    .transform((v) => (v === "" ? undefined : v)),
+  linkReferencia: linkRef,
+});
+export type ItemInput = z.infer<typeof ItemInput>;
+
+export const EditItemInput = ItemInput.extend({
+  id: z.string().min(1),
+});
+export type EditItemInput = z.infer<typeof EditItemInput>;
+
 /**
  * Helper para server actions: convierte FormData a objeto plano y lo valida.
  * Retorna { ok: true, data } o { ok: false, errors } sin lanzar.
