@@ -1,4 +1,5 @@
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 import { getIronSession, type SessionOptions } from "iron-session";
 
 export type AdminSession = {
@@ -33,4 +34,11 @@ export async function getAdminSession() {
 export async function isAdminAuthenticated(): Promise<boolean> {
   const s = await getAdminSession();
   return s.authenticated === true;
+}
+
+/** Usar al tope de cada page protegido en /admin/*. Lanza redirect si no auth. */
+export async function requireAdmin() {
+  const s = await getAdminSession();
+  if (!s.authenticated) redirect("/admin/login");
+  return s;
 }

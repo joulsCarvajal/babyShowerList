@@ -149,7 +149,7 @@ Lista ejecutable de tareas. Cada tarea tiene definition of done (DoD) explícita
 
 Epics, no tareas de un commit. Desglosar al terminar S1.
 
-- [ ] **T2.1 — Infra de sesión y rate limit**
+- [x] **T2.1 — Infra de sesión y rate limit** *(iron-session cookie `admin_session` 7d; rate-limit en Map validado: 5 fails/10min → bloqueo 15min, auto-expira, aislamiento por IP)*
   - `lib/session.ts` con iron-session (cookie `admin_session`, 7 días).
   - `lib/rate-limit.ts` Map en memoria por IP, 5 intentos / 10 min, bloqueo 15 min.
 - [ ] **T2.2 — `/admin/login` + protección de layout**
