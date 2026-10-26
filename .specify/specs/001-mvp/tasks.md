@@ -156,7 +156,7 @@ Epics, no tareas de un commit. Desglosar al terminar S1.
   - Form password, server action que valida contra `ADMIN_PASSWORD`, aplica rate limit.
   - `app/admin/layout.tsx` redirige si no autenticado.
   - Botón logout.
-- [ ] **T2.3 — `/admin/items` CRUD**
+- [x] **T2.3 — `/admin/items` CRUD** *(crear, editar inline, eliminar con confirm diferenciado si hay reserva activa, toggle `ya_lo_tenemos`↔`disponible` sin tocar `reservado`/`recibido`, autocompletar categorías vía `<datalist>` nativo con categorías existentes)*
   - Tabla, formulario crear/editar (incluye categoría con sugerencia autocompletar basada en existentes), acción cambiar estado `ya_lo_tenemos ↔ disponible`, eliminar con confirmación.
 - [ ] **T2.4 — `/admin/reservas`**
   - Lista agrupada visualmente por `nombreInvitado`, con fecha y mensaje opcional.
