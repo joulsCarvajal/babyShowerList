@@ -51,7 +51,7 @@ export default async function Home({
     <div className="relative flex-1 w-full">
       <div
         aria-hidden
-        className="pointer-events-none fixed inset-0 -z-10 bg-[url('/winnie.webp')] bg-cover bg-center bg-no-repeat"
+        className="pointer-events-none fixed inset-0 -z-10 bg-[url('/winniedos.webp')] bg-cover bg-center bg-no-repeat"
       />
       <div
         aria-hidden
