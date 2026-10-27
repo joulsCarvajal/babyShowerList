@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { prisma } from "@/lib/db";
 import { formatEventoDisplay } from "@/lib/tz";
+import { MensajePapas } from "@/components/MensajePapas";
 
 export async function EventoHeader() {
   const evento = await prisma.configEvento.findUnique({ where: { id: 1 } });
@@ -79,6 +80,7 @@ export async function EventoHeader() {
             </svg>
             Confirma tu asistencia
           </a>
+          <MensajePapas />
         </div>
       ) : (
         <p className="mt-6 text-stone-500 text-sm">
