@@ -113,14 +113,11 @@ export default async function Home({
               (i) =>
                 i.estado === "ya_lo_tenemos" || i.estado === "recibido",
             ).length;
-            // Mantén abierta la categoría si tiene al menos un disponible,
-            // para que el invitado vea sin esfuerzo dónde puede ayudar.
-            const defaultOpen = dispCat > 0;
-
+            // Siempre colapsado por default; cada reload cierra todo. Los contadores
+            // del summary muestran dónde hay disponibles sin necesidad de abrir.
             return (
               <details
                 key={categoria}
-                open={defaultOpen}
                 className="mb-3 rounded-xl border border-amber-100 bg-white"
               >
                 <summary className="cursor-pointer list-none select-none px-4 py-3 flex items-center justify-between gap-3">

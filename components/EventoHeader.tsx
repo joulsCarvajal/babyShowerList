@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { prisma } from "@/lib/db";
 import { formatEventoDisplay } from "@/lib/tz";
 
@@ -6,15 +7,30 @@ export async function EventoHeader() {
 
   return (
     <header className="text-center">
-      <p className="text-sm uppercase tracking-widest text-rose-600 font-semibold mb-2">
-        Baby Shower
-      </p>
-      <h1 className="text-4xl sm:text-5xl font-semibold text-stone-900 leading-tight">
-        Juan José
-        <span className="block text-2xl sm:text-3xl text-stone-700 mt-1">
-          Carvajal Ramírez
-        </span>
-      </h1>
+      {/* Layout: título centrado en móvil; en sm+ el nombre a la izquierda y la ilustración a la derecha. */}
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-center sm:gap-6">
+        <div className="order-2 sm:order-1 sm:text-left">
+          <p className="text-sm uppercase tracking-widest text-rose-600 font-semibold mb-2">
+            Baby Shower
+          </p>
+          <h1 className="text-4xl sm:text-5xl font-semibold text-stone-900 leading-tight">
+            Juan José
+            <span className="block text-2xl sm:text-3xl text-stone-700 mt-1">
+              Carvajal Ramírez
+            </span>
+          </h1>
+        </div>
+        <div className="order-1 sm:order-2 mb-3 sm:mb-0 flex justify-center shrink-0">
+          <Image
+            src="/winnietres.jpg"
+            alt=""
+            width={160}
+            height={160}
+            priority
+            className="rounded-full w-28 h-28 sm:w-40 sm:h-40 object-cover shadow-sm"
+          />
+        </div>
+      </div>
 
       {evento ? (
         <div className="mt-6 inline-flex flex-col items-center gap-3 rounded-2xl bg-white border border-amber-100 shadow-sm px-6 py-5">
