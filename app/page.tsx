@@ -48,8 +48,17 @@ export default async function Home({
   }, {});
 
   return (
-    <main className="flex-1 w-full max-w-2xl mx-auto px-4 py-10 sm:px-6 sm:py-16">
-      <EventoHeader />
+    <div className="relative flex-1 w-full">
+      <div
+        aria-hidden
+        className="pointer-events-none fixed inset-0 -z-10 bg-[url('/winnie.webp')] bg-cover bg-center bg-no-repeat"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none fixed inset-0 -z-10 bg-amber-50/80"
+      />
+      <main className="flex-1 w-full max-w-2xl mx-auto px-4 py-10 sm:px-6 sm:py-16">
+        <EventoHeader />
 
       <section className="mt-12" aria-labelledby="titulo-lista">
         <div className="flex items-baseline justify-between flex-wrap gap-x-4 gap-y-2 mb-5">
@@ -178,6 +187,7 @@ export default async function Home({
         <MensajeForm />
         <MensajesList />
       </section>
-    </main>
+      </main>
+    </div>
   );
 }
