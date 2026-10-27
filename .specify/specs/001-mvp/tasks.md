@@ -180,9 +180,9 @@ Epics, no tareas de un commit. Desglosar al terminar S1.
 - [x] **T3.3 — A11y pass: labels, contraste, focus visible, orden de tabulación.** *(contraste: rose-500→600, emerald-600→700 para pasar AA en botones primarios; focus-visible global para button/a/summary; h1 en layout admin; labels y aria-* ya existían desde S1)*
 - [x] **T3.4 — Cargar lista real de ítems** vía `/admin/items` (sesión conjunta Tatiana + Julián).
 - [x] **T3.5 — Configurar `ConfigEvento` real** (hora exacta, dirección completa).
-- [ ] **T3.6 — Soft launch lunes 10-nov** — enviar link a 6-10 familiares cercanos. Pedir que reserven algo y manden mensaje.
-- [ ] **T3.7 — Triage de bugs 10-nov a 14-nov** y fix.
-- [ ] **T3.8 — Backup manual de DB** (verificar que el flujo `railway run cp /data/babyshower.db ...` funciona).
+- [x] **T3.6 — Soft launch lunes 10-nov** — enviar link a 6-10 familiares cercanos *(adelantado al 2026-10-26 porque el MVP quedó listo con 15 días de buffer)*.
+- [ ] **T3.7 — Triage de bugs 10-nov a 14-nov** y fix *(en curso: ventana de feedback activa)*.
+- [x] **T3.8 — Backup manual de DB** *(sustituido el flujo CLI por ruta web `/admin/backup` protegida — más repetible; backup pre-launch confirmado por Julián)*.
 
 **Hito S3 (viernes 14-nov):** zero bugs conocidos, feedback incorporado.
 
