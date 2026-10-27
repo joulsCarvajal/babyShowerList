@@ -45,12 +45,25 @@ model Reserva {
 }
 
 model Mensaje {
-  id          String   @id @default(cuid())
+  id          String             @id @default(cuid())
   nombreAutor String
   texto       String
-  createdAt   DateTime @default(now())
+  createdAt   DateTime           @default(now())
+  reacciones  MensajeReaccion[]
 
   @@index([createdAt])
+}
+
+model MensajeReaccion {
+  id        String   @id @default(cuid())
+  mensajeId String
+  mensaje   Mensaje  @relation(fields: [mensajeId], references: [id], onDelete: Cascade)
+  emoji     String
+  count     Int      @default(0)
+  updatedAt DateTime @updatedAt
+
+  @@unique([mensajeId, emoji])
+  @@index([mensajeId])
 }
 
 // Singleton (id = 1 siempre). Config del evento, editable por admin.

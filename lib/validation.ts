@@ -46,6 +46,15 @@ export const LiberarInput = z.object({
 });
 export type LiberarInput = z.infer<typeof LiberarInput>;
 
+export const EMOJIS_REACCION = ["❤️", "🙏", "🥰", "🎉", "👶"] as const;
+export type EmojiReaccion = (typeof EMOJIS_REACCION)[number];
+
+export const ReaccionInput = z.object({
+  mensajeId: z.string().min(1),
+  emoji: z.enum(EMOJIS_REACCION),
+});
+export type ReaccionInput = z.infer<typeof ReaccionInput>;
+
 const linkRef = z
   .string()
   .trim()
