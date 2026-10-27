@@ -51,7 +51,7 @@ export function MensajePapas() {
 
       <dialog
         ref={dialogRef}
-        className="rounded-2xl p-0 w-[min(100%,460px)] backdrop:bg-stone-900/50"
+        className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 m-0 rounded-2xl p-0 w-[min(100%-2rem,460px)] max-h-[calc(100dvh-2rem)] overflow-y-auto backdrop:bg-stone-900/50"
         onClick={(e) => {
           if (e.target === dialogRef.current) cerrar();
         }}
@@ -59,14 +59,11 @@ export function MensajePapas() {
       >
         <div className="flex flex-col gap-4 p-6 bg-gradient-to-b from-amber-50 to-white">
           <header className="text-center">
-            <p className="text-xs uppercase tracking-widest text-rose-600 font-semibold">
-              Un mensaje para ti
-            </p>
             <h3
               id="mensaje-papas-titulo"
-              className="mt-1 text-xl font-semibold text-stone-900"
+              className="text-xs uppercase tracking-widest text-rose-600 font-semibold"
             >
-              De parte de Tatiana y Julián
+              Un mensaje para ti
             </h3>
           </header>
 
